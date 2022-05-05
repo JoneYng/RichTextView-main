@@ -36,7 +36,7 @@ class RichTableLayout constructor(
                 val m: Matcher = p.matcher(group)
                 while (m.find()) {
                     Log.e(TAG, "group=$group, ${m.group(1)}")
-                    m.group(1)?.trim()?.toInt()?.let { list.add(it) }
+                    m.group(1)?.trim()?.toFloat()?.toInt()?.let { list.add(it) }
                 }
             }
         }
@@ -54,7 +54,7 @@ class RichTableLayout constructor(
         removeAllViews()
         addLine()
         val tableWidths = parseTableColWidths(resource)
-        val p: Pattern = Pattern.compile("<tr>[\\s\\S]*?</tr>")
+        val p: Pattern = Pattern.compile("<tr[\\s\\S]*?>[\\s\\S]*?</tr>")
         val m: Matcher = p.matcher(resource)
         while (m.find()) {
             val trString = m.group()
