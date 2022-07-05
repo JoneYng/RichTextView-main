@@ -36,7 +36,7 @@ Android 富文本支持表格，数学公式，图片，点击扩展
 - `< img src="..." width="..." height="...">`[extend support width, height]
 
 
-![RichText](/image/RichText.jpg)
+![RichText](/image/RichText.png)
 
 ```
 <h2>Hello world</h2>
