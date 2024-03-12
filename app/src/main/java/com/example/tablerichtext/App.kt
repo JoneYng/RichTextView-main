@@ -1,25 +1,51 @@
-package com.example.tablerichtext;
+package com.example.tablerichtext
 
-import android.app.Application;
-
-import org.scilab.forge.jlatexmath.core.AjLatexMath;
-
-import java.util.concurrent.Callable;
-
-import bolts.Task;
+import android.app.Application
+import android.content.Context
+import bolts.Task
+import org.scilab.forge.jlatexmath.core.AjLatexMath
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.lang.StringBuilder
 
 /**
  */
-public class App extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        Task.callInBackground(new Callable<Object>() {
-            @Override
-            public Object call() throws Exception {
-                AjLatexMath.init(getApplicationContext());
-                return null;
+class App : Application() {
+    companion object{
+        private var appContext: Application? = null
+        fun getAppContext(): Context {
+            return appContext!!
+        }
+        //本地数据
+        fun getSample(): String {
+            try {
+                val `is`: InputStream = getAppContext().resources.openRawResource(com.example.tablerichtext.R.raw.sample)
+                val reader = BufferedReader(InputStreamReader(`is`))
+                val sb = StringBuilder()
+                var line: String?
+                while (reader.readLine().also { line = it } != null) {
+                    sb.append(line)
+                    sb.append("\n")
+                }
+                return sb.toString()
+            } catch (e: IOException) {
+                e.printStackTrace()
+                return ""
             }
-        });
+        }
+    }
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(base)
+        appContext = this
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        Task.callInBackground<Any> {
+            AjLatexMath.init(applicationContext)
+            null
+        }
     }
 }

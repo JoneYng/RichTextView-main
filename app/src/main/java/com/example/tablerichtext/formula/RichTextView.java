@@ -2,12 +2,7 @@ package com.example.tablerichtext.formula;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.text.Html;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -24,22 +19,10 @@ import com.example.tablerichtext.R;
 import com.example.tablerichtext.htmltext.HtmlImageLoader;
 import com.example.tablerichtext.htmltext.HtmlText;
 import com.example.tablerichtext.htmltext.OnTagClickListener;
-import com.example.tablerichtext.test.MainActivity;
 
 import org.scilab.forge.jlatexmath.core.AjLatexMath;
-import org.scilab.forge.jlatexmath.core.Insets;
-import org.scilab.forge.jlatexmath.core.TeXConstants;
-import org.scilab.forge.jlatexmath.core.TeXFormula;
-import org.scilab.forge.jlatexmath.core.TeXIcon;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import bolts.Continuation;
-import bolts.Task;
 
 /**
  * 富文本
