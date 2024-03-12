@@ -11,6 +11,7 @@ import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
@@ -222,7 +223,7 @@ public class MathView extends WebView {
             @JavascriptInterface
             @Override
             public void showBigImg(String url) {
-
+                Toast.makeText(mContext, url, Toast.LENGTH_SHORT).show();
             }
             @JavascriptInterface
             @Override
