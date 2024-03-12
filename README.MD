@@ -1,5 +1,12 @@
-Android 富文本支持表格，数学公式，图片，点击扩展
-## Supported HTML tags
+Android 富文本支持表格，数学公式，图片，点击扩展 （原生和WebView两种模式）
+## 主页
+![RichText](/image/Home.jpg)
+
+
+## WebView支持数学公式
+![RichText](/image/WebViewMath.jpg)
+
+## 原生支持标签 Supported HTML tags
 
 ### Tags supported by android.text.Html
 - `<p>`
@@ -36,7 +43,7 @@ Android 富文本支持表格，数学公式，图片，点击扩展
 - `< img src="..." width="..." height="...">`[extend support width, height]
 
 
-![RichText](/image/RichText.png)
+![RichText](/image/NativeMath.png)
 
 ```
 <h2>Hello world</h2>
