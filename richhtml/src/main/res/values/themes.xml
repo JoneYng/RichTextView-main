@@ -14,4 +14,11 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <declare-styleable name="MathView">
+        <attr name="setViewBackgroundColor" format="color" />
+        <attr name="setText" format="string" />
+        <attr name="setTextColor" format="color" />
+        <attr name="setTextSize" format="dimension" />
+        <attr name="setClickable" format="boolean" />
+    </declare-styleable>
 </resources>

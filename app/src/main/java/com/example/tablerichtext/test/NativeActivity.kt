@@ -4,13 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.text.HtmlCompat
 import com.example.tablerichtext.App
-import com.example.tablerichtext.App.Companion.getSample
-import com.example.tablerichtext.table.HtmlTextView
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStream
-import java.io.InputStreamReader
-import java.lang.StringBuilder
+import com.zx.richhtml.table.HtmlTextView
 
 
 

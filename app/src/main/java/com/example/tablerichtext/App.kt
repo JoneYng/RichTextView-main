@@ -2,8 +2,7 @@ package com.example.tablerichtext
 
 import android.app.Application
 import android.content.Context
-import bolts.Task
-import org.scilab.forge.jlatexmath.core.AjLatexMath
+import com.zx.richhtml.RichHtml
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
@@ -43,9 +42,6 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Task.callInBackground<Any> {
-            AjLatexMath.init(applicationContext)
-            null
-        }
+        RichHtml.init(applicationContext)
     }
 }

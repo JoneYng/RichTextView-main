@@ -2,11 +2,9 @@ package com.example.tablerichtext.test
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.text.HtmlCompat
 import com.example.tablerichtext.App
 import com.example.tablerichtext.R
-import com.example.tablerichtext.mathweb.MathView
-import com.example.tablerichtext.table.HtmlTextView
+import com.zx.richhtml.mathweb.MathView
 
 class WebActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
