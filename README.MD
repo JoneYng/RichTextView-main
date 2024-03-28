@@ -1,4 +1,41 @@
 Android 富文本支持表格，数学公式，图片，点击扩展 （原生和WebView两种模式）
+## 使用方法
+```
+Step 1.
+dependencies {
+	        implementation 'com.github.JoneYng:RichTextView-main:Tag'
+	        }
+
+原生调用：
+<com.example.tablerichtext.table.HtmlTextView
+            android:id="@+id/htmlTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+            
+            
+ this.findViewById<HtmlTextView>(com.example.tablerichtext.R.id.htmlTextView)
+ .setHtml(App.getSample(), HtmlCompat.FROM_HTML_MODE_LEGACY, null, null)   
+ 
+ 
+H5调用：
+   <com.example.tablerichtext.mathweb.MathView
+        android:id="@+id/math_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    </com.example.tablerichtext.mathweb.MathView>
+    
+this.findViewById<MathView>(R.id.math_view)
+            .setDisplayText(App.getSample())        
+
+```
+
 ## 主页
 ![RichText](/image/Home.jpg)
 
