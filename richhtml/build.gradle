@@ -3,7 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
 }
-
 android {
     namespace 'com.zx.richhtml'
     compileSdk 33
@@ -29,33 +28,35 @@ android {
         jvmTarget = '1.8'
     }
 }
-
 afterEvaluate {
     publishing {
-        def versionName = "1.0"
         publications {
             // Creates a Maven publication called "release".
+            group = 'com.github.hirezy'
+            version = '1.0.0'
+            //发布release版本
             release(MavenPublication) {
                 // Applies the component for the release build variant.
-                from components.release
-
-                // You can then customize attributes of the publication as shown below.
-                groupId = 'com.XX.XX'
-                artifactId = 'library'
-                version = versionName
+//                from components.release
+                //groupId通常是自己的gitee或者GitHub的账户地址
+                groupId = group
+                //artifactId通常是指待发布项目的名称，也就是别名
+                artifactId = 'ShapeImageView'
+                //version通常是指待发布项目的版本号，这里是写死的，通常我们取项目versionName
+                version = version
+            }
+            //发布debug版本
+            debug(MavenPublication) {
+                // Applies the component for the release build variant.
+//                from components.debug
+                groupId = group
+                artifactId = 'ShapeImageView-debug'
+                version = version
             }
         }
-        /*repositories {
-            maven {
-                // change URLs to point to your repos, e.g. http://my.org/repo
-                def baseUrl = buildDir.getParent()
-                def releasesRepoUrl = "$baseUrl/repos/releases"
-                def snapshotsRepoUrl = "$baseUrl/repos/snapshots"
-                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-            }
-        }*/
     }
 }
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.core:core-ktx:1.6.0'
@@ -64,5 +65,18 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation project(':latexlibrary')
+    //默认情况下，Gradle将每24小时刷新一次快照依赖项。
+    //如果版本以-SNAPSHOT后缀结尾，Gradle将自动将依赖项识别为快照。例如:
+//    compile group: "aGroup", name: "anArtifact", version: "1.0-SNAPSHOT"
+    //但是，如果依赖项的版本字符串不以-SNAPSHOT结尾，则需要告知Gradle它是带有changing参数的快照。例如
+    implementation group: "aGroup", name: "anArtifact", version: "1.0", changing: true
+}
+//打包源码的task
+task generateSourcesJar(type: Jar){
+    from android.sourceSets.main.java.srcDirs
+    classifier  'sources'
+}
 
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
