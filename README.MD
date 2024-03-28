@@ -3,7 +3,7 @@ Android 富文本支持表格，数学公式，图片，点击扩展 （原生�
 ```
 Step 1.
 dependencies {
-	        implementation 'com.github.JoneYng:RichTextView-main:Tag'
+	        implementation 'com.github.JoneYng:RichTextView-main:1.0.0'
 	        }
 
 原生调用：
